@@ -20,8 +20,7 @@ class MethodsPreparation():
       pass
 
     def preprocessing(self, df):
-
-      ''' esta função bla bla bla '''
+      
       scale = StandardScaler()
       df_scale = pd.DataFrame(scale.fit_transform(df), 
                                columns=df.columns,
