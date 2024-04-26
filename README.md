@@ -86,7 +86,7 @@ Ressalto que esses valores foram testados em ambos os modelos e apresentou melho
 
 **Matematicamente:**
 
-Primeiramente vamos definir um objeto $\textbf{c}_{i}\in\mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos $\{\textbf{c}\_i\}\_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada. Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
+Primeiramente vamos definir um objeto $\textbf{c}_{i}\in\mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos ${\textbf{c}\_i}\_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada. Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
 
 $$O=\displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}_{n}-\textbf{c}_i\Vert^2\nonumber,$$ onde
 
@@ -158,7 +158,4 @@ A sensibilidade a outliers pode levar a resultados indesejados, pois o centróid
 
 O DBSCAN se baseia na densidade de pontos em torno de cada padrão para definir os clusters. Na primeira etapa do algoritmo ele toma cada amostra e a considera: ou como um ponto central, ou como um ponto de fronteira ou como um ruído; já na segunda etapa os pontos centrais e de fronteira são agrupados em clusters, o que significa que os pontos de ruído ficam fora de qualquer cluster, e por isso sua robustez aos _outliers_.
 
-<script type="text/javascript" async
-
-src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
