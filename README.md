@@ -91,8 +91,8 @@ Considerando que temos um espaço métrico em questão, vamos definir uma funç�
 $$O = \displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}_{n}-\textbf{c}_i\Vert^2\nonumber$$ , onde
 
 $$z_{n,i} =
-\left\{\begin{array}{rll}$$
-$$1, & \; \hbox{se}\;\;\textbf{x}_{n}\in \textbf{c}_i \nonumber\\$$
+$$\left\{\begin{array}{rll}
+$$1, & \; \hbox{se}\;\;\textbf{x}_{n}\in \textbf{c}_i \nonumber\\
 $$0, & \; \hbox{se}\;\; \textbf{x}_{n}\notin \textbf{c}_{i}  \end{array}\right.$$
 
 1 - Dadas as posições atuais dos clusters $\{\textbf{c}_i\}_{i=1}^{k}$, minimizamos $O$ em relação a
