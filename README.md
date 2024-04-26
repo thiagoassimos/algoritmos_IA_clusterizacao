@@ -110,11 +110,11 @@ logo,
 ```
 
 2 - Dada a atribuição dos dados aos clusters, minimizamos com respeito a $\textbf{c}_i$, ou seja, atualizamos as posições dos clusters e consequentemente 
-```math \dfrac{\partial O}{\partial \textbf{c}_j} = \displaystyle{\sum_{n=1}^{N}} z_{n,j}(\textbf{x}_n-\textbf{c}_j)=0\nonumber
-```,
+```math \dfrac{\partial O}{\partial \textbf{c}_j} = \displaystyle{\sum_{n=1}^{N}} z_{n,j}(\textbf{x}_n-\textbf{c}_j)=0\nonumber,
+```
 
 logo,
-$$\textbf{c}_j = \dfrac{\displaystyle{\sum_{n=1}^{N}}z_{n,j}\textbf{x}_n}{\displaystyle{\sum_{n=1}^{N}z_{n,j}}}\nonumber$$.
+```math \textbf{c}_j = \dfrac{\displaystyle{\sum_{n=1}^{N}}z_{n,j}\textbf{x}_n}{\displaystyle{\sum_{n=1}^{N}z_{n,j}}}\nonumber```.
 
 Resumidamente, podemos dizer que o K-Means repete estes dois passos até que a convergência (posições dos objetos deve ser inferior a um limiar pequeno) seja atingida, isto é, até que o centróide não se desloque mais.
 
