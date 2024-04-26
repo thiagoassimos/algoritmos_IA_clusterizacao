@@ -98,7 +98,7 @@ $$O=\displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textb
 
 1 - Dadas as posições atuais dos clusters $\{\textbf{c}_i\}_{i=1}^{k}$, minimizamos $O$ em relação a $z_{n,i}$, isto é, fazemos a atribuição de cada padrão $\textbf{x}_n$ a um dos clusters existentes,
 
-$$\displaystyle\min_{z_{n,i}} O = \displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}_n-\textbf{c}_{i}\Vert^2\nonumber$$
+$$\displaystyle\min_{z_{n,i}} O = \displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}-\textbf{c}_{i}\Vert^2\nonumber$$
 
 logo,
 
