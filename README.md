@@ -100,7 +100,6 @@ $$O = \displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\tex
 ```math \displaystyle\min_{z_{n,i}} O = \displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}_{n}-\textbf{c}_{i}\Vert^2\nonumber,
 ```
 logo, 
-
 ```math z_{n,i} =
 \left\{\begin{array}{rll}
 1, & \; \hbox{se}\;\;\arg\displaystyle\min_{j}\Vert\textbf{x}_n-\textbf{c}_i\Vert^2 \nonumber\\ 
@@ -110,7 +109,6 @@ logo,
 2 - Dada a atribuição dos dados aos clusters, minimizamos com respeito a $\textbf{c}_i$, ou seja, atualizamos as posições dos clusters e consequentemente 
 ```math \dfrac{\partial O}{\partial \textbf{c}_j} = \displaystyle{\sum_{n=1}^{N}} z_{n,j}(\textbf{x}_n-\textbf{c}_j)=0\nonumber,
 ```
-
 logo,
 ```math \textbf{c}_j = \dfrac{\displaystyle{\sum_{n=1}^{N}}z_{n,j}\textbf{x}_n}{\displaystyle{\sum_{n=1}^{N}z_{n,j}}}\nonumber```.
 
