@@ -85,7 +85,7 @@ Ressalto que esses valores foram testados em ambos os modelos e apresentou melho
 
 **Matematicamente:**
 
-Primeiramente vamos definir um objeto $\textbf{c}_{i} \in \mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos $\{\textbf{c}_i\}_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada.
+Primeiramente vamos definir um objeto ...\textbf{c}_{i} \in \mathbb{R}^{K\times 1}... que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos $\{\textbf{c}_i\}_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada.
 Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
 
 $\begin{equation}
