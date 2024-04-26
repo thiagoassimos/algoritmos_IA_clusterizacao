@@ -89,6 +89,7 @@ Primeiramente vamos definir um objeto $\textbf{c}_{i} \in \mathbb{R}^{K\times 1}
 Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
 
 $$O = \displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}_{n}-\textbf{c}_i\Vert^2\nonumber$$, 
+
 onde
 
 ```math z_{n,i} =
