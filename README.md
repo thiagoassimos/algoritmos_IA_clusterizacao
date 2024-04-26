@@ -166,3 +166,8 @@ A sensibilidade a outliers pode levar a resultados indesejados, pois o centróid
 # 4. Por que o algoritmo de DBScan é mais robusto à presença de outliers?
 
 O DBSCAN se baseia na densidade de pontos em torno de cada padrão para definir os clusters. Na primeira etapa do algoritmo ele toma cada amostra e a considera: ou como um ponto central, ou como um ponto de fronteira ou como um ruído; já na segunda etapa os pontos centrais e de fronteira são agrupados em clusters, o que significa que os pontos de ruído ficam fora de qualquer cluster, e por isso sua robustez aos _outliers_.
+
+<script type="text/javascript" async
+
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+
