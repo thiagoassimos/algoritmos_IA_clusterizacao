@@ -85,20 +85,20 @@ Ressalto que esses valores foram testados em ambos os modelos e apresentou melho
 
 **Matematicamente:**
 
-Primeiramente vamos definir um objeto $\textbf{c}_{i} \in \mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos $\{\textbf{c}_i\}_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada.
+Primeiramente vamos definir um objeto $\textbf{c}_{i} \in \mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos $\textbf{c}_i_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada.
 Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
 
-\begin{equation}
+$$\begin{equation}
 O = \displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}_{n}-\textbf{c}_i\Vert^2\nonumber, 
-\end{equation}
+\end{equation}$$
 onde
 
-$\begin{equation}
+$$\begin{equation}
 z_{n,i} =
 \left\{\begin{array}{rll}
 1, & \; \hbox{se}\;\;\textbf{x}_{n}\in \textbf{c}_i \nonumber\\ 
 0, & \; \hbox{se}\;\; \textbf{x}_{n}\notin \textbf{c}_{i}  \end{array}\right.
-\end{equation}$
+\end{equation}$$
 
 1 - Dadas as posições atuais dos clusters $\{\textbf{c}_i\}_{i=1}^{k}$, minimizamos $O$ em relação a
 $z_{n,i}$, isto é, fazemos a atribuição de cada padrão $\textbf{x}_n$ a um dos clusters existentes,
