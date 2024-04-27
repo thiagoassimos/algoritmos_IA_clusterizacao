@@ -162,12 +162,12 @@ O Medoid do Cluster 1 é: SURINAME
 
 O Medoid do Cluster 2 é: FINLAND
 
-### 3. O algoritmo de K-médias é sensível a outliers nos dados. Explique.
+### 3. O algoritmo de K-médias é sensível a outliers nos dados.
 
 Sim, pois a ideia é minimizar a norma(geralmente euclidiana) entre os pontos e os centróides dos clusters. Como os outliers são pontos discrepantes no espaço de características, eles oferecem alterações significativas na média e, consequentemente, no centróide.
 
 A sensibilidade a outliers pode levar a resultados indesejados, pois o centróide pode ser "puxado" em direção aos outliers, distorcendo a formação dos clusters. Isso ocorre porque o K-Means assume que os dados são distribuídos de maneira esférica e homogênea, o que significa que ele tentará criar clusters que são esfericamente compactos e de tamanhos aproximadamente iguais.
 
-# 4. Por que o algoritmo de DBScan é mais robusto à presença de outliers?
+# 4. O algoritmo de DBScan é mais robusto à presença de outliers.
 
 O DBSCAN se baseia na densidade de pontos em torno de cada padrão para definir os clusters. Na primeira etapa do algoritmo ele toma cada amostra e a considera: ou como um ponto central, ou como um ponto de fronteira ou como um ruído; já na segunda etapa os pontos centrais e de fronteira são agrupados em clusters, o que significa que os pontos de ruído ficam fora de qualquer cluster, e por isso sua robustez aos _outliers_.
