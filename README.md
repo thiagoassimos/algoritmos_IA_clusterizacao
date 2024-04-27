@@ -110,7 +110,7 @@ $$\displaystyle\min_{z_{n,i}} O = \displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\text
 
 $$\dfrac{\partial O}{\partial c_j}=\displaystyle{\sum_{n=1}^{N}}z_{n,j}(\textbf{x}_{n}-\textbf{c}_j)=0\nonumber,$$ onde
 
-$$c_j=\displaystyle{\sum_{n=1}^{N}}z_{n,j}\textbf{x}_{n}\displaystyle{\sum_{n=1}^{N}}z_{n,j}.$$
+$$\textbf{c}_j=\dfrac{\displaystyle{\sum\_{n=1}^{N}}z\_{n,j}\textbf{x}_n}{\displaystyle{\sum\_{n=1}^{N}}z\_{n,j}} $$
 
 Resumidamente, podemos dizer que o K-Means repete estes dois passos até que a convergência (posições dos objetos deve ser inferior a um limiar pequeno) seja atingida, isto é, até que o centróide não se desloque mais.
 
