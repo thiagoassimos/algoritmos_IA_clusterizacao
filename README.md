@@ -88,7 +88,7 @@ Ressalto que esses valores foram testados em ambos os modelos e apresentou melho
 
 Primeiramente vamos definir um objeto $\textbf{c}_{i}\in\mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos ${\lbrace\textbf{c}_i\rbrace}\_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada. Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
 
-$$O=\displaystyle{\sum_{n=1}^{N}}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}_{n}-\textbf{c}_i\Vert^2\nonumber,$$ onde
+$$O=\displaystyle{\sum_{n=1}^{N}\displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\textbf{x}_{n}-\textbf{c}_i\Vert^2\nonumber,$$ onde
 
 ```math z_{n,i} =
 \left\{\begin{array}{rll}
@@ -110,7 +110,7 @@ $$\displaystyle\min_{z_{n,i}} O = \displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\text
 
 $$\dfrac{\partial O}{\partial c_j}=\displaystyle{\sum_{n=1}^{N}}z_{n,j}(\textbf{x}_{n}-\textbf{c}_j)=0\nonumber,$$ onde
 
-$$c_j = \dfrac{\displaystyle{\sum_{n=1}^{N}}z_{n,j}\textbf{x}_\n}{\sum_{n=1}^{N}}z_{n,j}}.$$
+$$c_j=\displaystyle{\sum_{n=1}^{N}}z_{n,j}\textbf{x}_{n}\displaystyle{\sum_{n=1}^{N}}z_{n,j}.$$
 
 Resumidamente, podemos dizer que o K-Means repete estes dois passos até que a convergência (posições dos objetos deve ser inferior a um limiar pequeno) seja atingida, isto é, até que o centróide não se desloque mais.
 
