@@ -1,3 +1,7 @@
+## Descrição do problema 
+
+A HELP International conseguiu arrecadar cerca de US$ 10 milhões. Agora o CEO da ONG precisa de decidir como usar este dinheiro de forma estratégica e eficaz. Assim, o CEO tem de tomar a decisão de escolher os países que mais necessitam de ajuda. Portanto, seu trabalho como cientista de dados é categorizar os países usando alguns fatores socioeconômicos e de saúde que determinam o desenvolvimento geral do país. Então você precisa sugerir os países nos quais o CEO precisa se concentrar mais.
+
 ## Interpretação dos resultados 
 
 O dendrograma é uma representação gráfica em forma de árvore para analisar agrupamentos ou clusters e assim mostrar a estrutura hierárquica dos dados. Nesta análise cada país é considerado um cluster (folha) que vai sendo aglomerado aos pares levando em conta alguma medida de similaridade - em nosso caso a distância euclidiana - até formar clusters maiores também conhecidos como nós subordinados, que serão conectados entre si até um limite (_threshold distance_) que é o ponto de corte para que os países sejam agrupados no mesmo cluster; se tiver um valor acima deste limite, o algoritmo não une. A partir daí todos os nós subordinados são conectados entre si até serem conectados ao nó raiz.
@@ -7,7 +11,6 @@ O dendrograma é uma representação gráfica em forma de árvore para analisar 
 Os valores de thresholsd e a forma do dendrograma praticamente não sofreram alterações com e sem o uso da PCA no dataset.
  
 Uma observação para não gerar confusão é que os países representados pelo cluster na cor verde no primeiro dendrograma (sem PCA) são os mesmos na cor roxa do segundo dendrograma (com PCA). Isso dá para ver tanto pelos nomes quanto pelo formato do agrupamento.
-
 
 - Países mais ricos - threshold pouco maior que 15;
  
@@ -83,7 +86,6 @@ Ressalto que esses valores foram testados em ambos os modelos e apresentou melho
 
 ### 1. Escreva em tópicos as etapas do algoritmo de K-médias até sua convergência.
 
-
 **Matematicamente:**
 
 Primeiramente vamos definir um objeto $\textbf{c}_{i}\in\mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos ${\lbrace\textbf{c}_i\rbrace}\_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada. Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
@@ -148,14 +150,12 @@ O Medoid do Cluster 1 é: SURINAME
 
 O Medoid do Cluster 2 é: FINLAND
 
-### 3. O algoritmo de K-médias é sensível a outliers nos dados.
+### Algumas discussões importantes
 
-Sim, pois a ideia é minimizar a norma(geralmente euclidiana) entre os pontos e os centróides dos clusters. Como os outliers são pontos discrepantes no espaço de características, eles oferecem alterações significativas na média e, consequentemente, no centróide.
+O algoritmo de K-Means é sensível a outliers nos dados porque a ideia é minimizar a norma(geralmente euclidiana) entre os pontos e os centróides dos clusters. Como os outliers são pontos discrepantes no espaço de características, eles oferecem alterações significativas na média e, consequentemente, no centróide.
 
 A sensibilidade a outliers pode levar a resultados indesejados, pois o centróide pode ser "puxado" em direção aos outliers, distorcendo a formação dos clusters. Isso ocorre porque o K-Means assume que os dados são distribuídos de maneira esférica e homogênea, o que significa que ele tentará criar clusters que são esfericamente compactos e de tamanhos aproximadamente iguais.
 
-# 4. O algoritmo de DBScan é mais robusto à presença de outliers.
-
-O DBSCAN se baseia na densidade de pontos em torno de cada padrão para definir os clusters. Na primeira etapa do algoritmo ele toma cada amostra e a considera: ou como um ponto central, ou como um ponto de fronteira ou como um ruído; já na segunda etapa os pontos centrais e de fronteira são agrupados em clusters, o que significa que os pontos de ruído ficam fora de qualquer cluster, e por isso sua robustez aos _outliers_.
+Já o algoritmo de DBScan é mais robusto à presença de outliers porque se baseia na densidade de pontos em torno de cada padrão para definir os clusters. Na primeira etapa do algoritmo ele toma cada amostra e a considera: ou como um ponto central, ou como um ponto de fronteira ou como um ruído; já na segunda etapa os pontos centrais e de fronteira são agrupados em clusters, o que significa que os pontos de ruído ficam fora de qualquer cluster, e por isso sua robustez aos _outliers_.
 
 
