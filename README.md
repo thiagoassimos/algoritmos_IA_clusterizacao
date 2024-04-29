@@ -6,7 +6,7 @@ A HELP International conseguiu arrecadar cerca de US$ 10 milhões. Agora o CEO d
 
 O dendrograma é uma representação gráfica em forma de árvore para analisar agrupamentos ou clusters e assim mostrar a estrutura hierárquica dos dados. Nesta análise cada país é considerado um cluster (folha) que vai sendo aglomerado aos pares levando em conta alguma medida de similaridade - em nosso caso a distância euclidiana - até formar clusters maiores também conhecidos como nós subordinados, que serão conectados entre si até um limite (_threshold distance_) que é o ponto de corte para que os países sejam agrupados no mesmo cluster; se tiver um valor acima deste limite, o algoritmo não une. A partir daí todos os nós subordinados são conectados entre si até serem conectados ao nó raiz.
 
- Fazendo a análise de cima para baixo, podemos observar que o nó raiz se divide em 2 nós subordinados maiores, tal que o da direita é subdividido em outros dois, formando assim os 3 agrupamentos imputados no algoritmo.
+Fazendo a análise de cima para baixo, podemos observar que o nó raiz se divide em 2 nós subordinados maiores, tal que o da direita é subdividido em outros dois, formando assim os 3 agrupamentos imputados no algoritmo.
 
 Os valores de thresholsd e a forma do dendrograma praticamente não sofreram alterações com e sem o uso da PCA no dataset.
  
@@ -18,7 +18,11 @@ Uma observação para não gerar confusão é que os países representados pelo 
 
 - Países mais pobres - threshold praticamente igual a 13.
 
-Essas diferenças nos dendrogramas dos países intermediários se deve à diferença na quantidade de países em cada cluster que o modelo de clusterização hierárquica apresentou para os casos sem PCA e com PCA.
+Essas diferenças nos dendrogramas dos países intermediários se deve à diferença na quantidade de países em cada cluster que o modelo de clusterização hierárquica apresentou para os casos sem PCA e com PCA, como podemos ver nas imagens abaixo, respectivamente.
+
+![Alt text](sem_pca.png)
+
+![Alt text](com_pca.png)
 
 ## Comparação dos resultados
 
