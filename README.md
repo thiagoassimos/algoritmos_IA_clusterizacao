@@ -18,7 +18,11 @@ Uma observação para não gerar confusão é que os países representados pelo 
 
 - Países mais pobres - threshold praticamente igual a 13.
 
-Essas diferenças nos dendrogramas dos países intermediários se deve à diferença na quantidade de países em cada cluster que o modelo de clusterização hierárquica apresentou para os casos sem PCA e com PCA.
+Essas diferenças nos dendrogramas dos países intermediários se deve à diferença na quantidade de países em cada cluster que o modelo de clusterização hierárquica apresentou para os casos sem PCA e com PCA, respectivamente, de acordo com as imagens abaixo.
+
+![Alt text](sem_pca.png)
+
+![Alt text](com_pca.png)
 
 ## Comparação dos resultados
 
