@@ -47,7 +47,7 @@ class Modeling_Agglomerative():
 
     def ideal_clusters(self, df, model):
       fig, ax = plt.subplots(1,1,figsize=(16,8))
-      visualizer = KElbowVisualizer(model, k=(2,12), ax=ax)
+      visualizer = KElbowVisualizer(model, k=(2,8), metric='distortion', distance_metric='manhattan', ax=ax, timings=False)
       visualizer.fit(df)
       return visualizer.show()
 

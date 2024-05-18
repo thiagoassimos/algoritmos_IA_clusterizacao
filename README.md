@@ -1,10 +1,81 @@
 ## Descrição do problema 
 
-A HELP International conseguiu arrecadar cerca de US$ 10 milhões. Agora o CEO da ONG precisa de decidir como usar este dinheiro de forma estratégica e eficaz. Assim, o CEO tem de tomar a decisão de escolher os países que mais necessitam de ajuda. Portanto, seu trabalho como cientista de dados é categorizar os países usando alguns fatores socioeconômicos e de saúde que determinam o desenvolvimento geral do país. Então você precisa sugerir os países nos quais o CEO precisa se concentrar mais.
+A HELP International conseguiu arrecadar cerca de US$ 10 milhões. Agora o CEO da ONG precisa de decidir como usar este dinheiro de forma estratégica e eficaz. Assim, o CEO tem de tomar a decisão de escolher os países que mais necessitam de ajuda. Portanto, como cientista de dados a ideia é categorizar os países usando alguns fatores socioeconômicos e de saúde que determinam o desenvolvimento geral do país. Por fim, será necessário sugerir os países nos quais o CEO precisa se concentrar mais.
 
-## Interpretação dos resultados
+## Modelos de clusterização utilizados: 
+
+### ```K-Means```
+
+A ideia central deste algoritmo é particionar um conjunto de dados em k clusters, nos quais cada ponto de dados pertence ao cluster cujo centróide é mais próximo. A partir daí ele repete sucessivamente esta tarefa com intuito de otimizar a divisão dos dados em clusters, de tal forma que a variância dentro de cada cluster seja minimizada.
+
+As etapas do algoritmo são divididas da seguinte forma:
+
+1) escolhe o número de clusters (k).
+
+2) inicializa aleatoriamente os centróides, um para cada cluster; lembramdo que os centróides são os pontos que representam o centro de cada cluster.
+
+3) atribui cada ponto de dados ao cluster cujo centróide é o mais próximo - isso é feito calculando a distância entre cada ponto e todos os centróides e atribuindo o ponto ao cluster cujo centróide é o mais próximo.
+
+4) atualiza os centróides, ou seja, recalcula os centróides de cada cluster - isso é feito tirando a média de todos os pontos atribuídos a cada cluster.
+
+Aplica sucessivamente os métodos 3 e 4 até que não haja mais alterações nas atribuições dos pontos aos clusters, isto equivale a dizer que as posições dos clusters é atualizada até que o centróide não se desloque mais ou até que se alcance o número máximo de iterações definido inicialmente.
+
+### ```Hierárquica```
 
 O dendrograma é uma representação gráfica em forma de árvore para analisar agrupamentos ou clusters e assim mostrar a estrutura hierárquica dos dados. Nesta análise cada país é considerado um cluster (folha) que vai sendo aglomerado aos pares levando em conta alguma medida de similaridade - em nosso caso a distância euclidiana - até formar clusters maiores também conhecidos como nós subordinados, que serão conectados entre si até um limite (_threshold distance_) que é o ponto de corte para que os países sejam agrupados no mesmo cluster; se tiver um valor acima deste limite, o algoritmo não une. A partir daí todos os nós subordinados são conectados entre si até serem conectados ao nó raiz.
+
+## Resultados
+
+### ```K-Means```
+
+Um país é considerado pertencente a um cluster se estiver mais próximo do centróide desse cluster. Isso é feito através da minimização da soma dos quadrados das distâncias dos pontos para o centróide de seus clusters atribuídos. Consequentemente o país mais próximo do centróide é aquele que melhor representa seu cluster. É importante lembrar que o nem sempre o centróide é um dado da base.
+
+### ```País que melhor representa seu cluster```
+***
+#### Sem PCA
+***
+Cluster 0: TANZANIA
+***
+Cluster 1: TUNISIA
+***
+Cluster 2: FINLAND
+***
+### Usando PCA
+***
+Cluster 0: TANZANIA
+***
+Cluster 1: SURINAME
+***
+Cluster 2: FINLAND
+***
+
+**OBS: O medóide é o dado da base pertencente a um cluster que tem a menor soma das distâncias para todos os outros pontos do mesmo cluster.**
+
+### ```Medóides```
+***
+#### Sem PCA
+***
+Cluster 0: TANZANIA
+***
+Cluster 1: TUNISIA
+***
+Cluster 2: FINLAND
+***
+#### Usando PCA
+***
+Cluster 0 é: TANZANIA
+
+Cluster 1 é: SURINAME
+
+Cluster 2 é: FINLAND
+
+**É importante observar que, em todos os casos, o país que melhor representa seu cluster foi o mesmo encontrado através do cálculo do medóide, logo, podemos dizer que o centróide coincidiu com o medóide.**
+
+### ```Hierárquica```
+
+![Alt text](sem_pca.png)
+
+![Alt text](com_pca.png)
 
 Fazendo a análise de cima para baixo, podemos observar que o nó raiz se divide em 2 nós subordinados maiores, tal que o da direita é subdividido em outros dois, formando assim os 3 agrupamentos imputados no algoritmo.
 
@@ -14,53 +85,71 @@ Uma observação para não gerar confusão é que os países representados pelo 
 
 - Países mais ricos - threshold pouco maior que 15;
  
-- Países intermediários - threshold ligeiramente maior que 9 no dendrograma sem PCA e ligeiramente menor que 9 no dendrograma com PCA;
+- Países intermediários - threshold igual a 9 no dendrograma sem PCA e ligeiramente maior que 10 no dendrograma com PCA;
 
 - Países mais pobres - threshold praticamente igual a 13.
 
-Essas diferenças nos dendrogramas dos países intermediários se deve à diferença na quantidade de países em cada cluster que o modelo de clusterização hierárquica apresentou para os casos sem PCA e com PCA, como podemos ver nas imagens abaixo, respectivamente.
+Essas diferenças nos dendrogramas dos países intermediários se deve à diferença na quantidade de países em cada cluster que o modelo de clusterização hierárquica apresentou para os casos sem PCA e com PCA, como podemos ver nas imagens acima.
 
-![Alt text](sem_pca.png)
+### ```País que melhor representa seu cluster```
+***
+#### Sem PCA
+***
+Cluster 0 é: FINLAND
+***
+Cluster 1 é: GHANA
+***
+Cluster 2 é: BULGARIA
+***
+#### Usando PCA
+***
+Cluster 0 é: FINLAND
+***
+Cluster 1 é: TANZANIA
+***
+Cluster 2 é: SURINAME
+***
 
-![Alt text](com_pca.png)
+### ```Medóides```
+
+#### Sem PCA
+
+Cluster 0 é: FINLAND
+***
+Cluster 1 é: GHANA
+***
+Cluster 2 é: BULGARIA
+***
+#### Usando PCA
+
+Cluster 0 é: FINLAND
+***
+Cluster 1 é: TANZANIA
+***
+Cluster 2 é: SURINAME
+***
+
+Neste modelo também foi usado a **```correlação cophenetic```** e ela apresentou um ótimo resultado **```(0.88)```**. Esta medida compara as distâncias entre pares de pontos no dendrograma com as distâncias originais entre os pontos. Uma correlação cophenetic alta (máximo igual a 1) indica uma boa preservação das distâncias originais.
 
 ## Comparação dos resultados
 
-A principal semelhança nos resultados comparando ambos os modelos (com e sem uso da PCA) foram os valores bem próximos para o índice de Davies-Bouldin(DB), entretanto, a clusterização hierárquica ainda leva uma pequena vantagem. Uma outra semelhança foi no resultado do dendrograma (escolhendo 3 clusters para representar os países) o que condiz com o número de clusters que escolhemos inicialmente no K-Means. Os medóides usando PCA foram os mesmos para ambos os modelos, porém sem o uso da PCA alguns cluster tiveream o mesmo medóide e outros não. O mesmo resultado ocorre com o país que melhor representa seu cluster - a PCA mostra o mesmo resultado para K-Means e hierárquica, o que não ocorre sem o uso da PCA; somente 1 país coincide para ambos os modelos.
+A principal semelhança nos resultados comparando ambos os modelos (com e sem uso da PCA) foram os valores bem próximos para o índice de **```Davies-Bouldin(DB)```**, que determina a média da similaridade de cada cluster com seu cluster mais semelhante, onde similaridade é a razão entre as distâncias dentro do cluster e as distâncias entre os clusters. Quanto menor o valor do índice de DB, melhor o resultado, ou seja, significa que temos clusters mais diantes e menos dispersos. A escolha pelo índice de DB se deve ao fato dele ser menos sensível a presença de _outliers_ - os quais foram mantidos no modelo - já que não seria interessante remover diversos países para fazer a análise.
 
-A escolha pelo índice de DB se deve ao fato dele ser menos sensível a presença de _outliers_ - os quais foram mantidos no modelo - já que não seria interessante remover diversos países para fazer a análise.
+Veja os resultados obtidos para o **```índice de DB```** em cada modelo apresentado:
 
-A principal diferença foi a quantidade de países em cada cluster de K-Means vs. Hierárquica. Essa diferença pode estar associada ao fato de K-Means:
+**```K-Means sem PCA```**: 1.22
 
-1 - ser mais sensível a _outliers_ em relação à clusterização hierárquica;
+**```K-Means com PCA```**: 1.17
 
-2 - assumir clusters esféricos e ter sensibilidade a tamanhos e formas irregulares de clusters; isso já é mais flexível no  algoritmo de clusterização hierárquica;
 
-3 - depender da escolha inicial dos centros dos clusters, o que não é necessário na clusterização hierárquica.
+**```Hierárquica sem PCA```**: 1.21
 
-Além disso, também usei o índice cophenetic e ele apresentou um ótimo resultado, o que define a escolha pela clusterização  hierárquica como melhor modelo.
+**```Hierárquica com PCA```**: 1.13
 
-Um outro ponto a ser observado é que a visualização do método do cotovelo definiu valores diferentes para o número de ideal de clusters na Hierárquica:
 
-1) K-Means: 
+Os medóides usando PCA foram os mesmos para ambos os modelos, porém sem o uso da PCA alguns cluster tiveram o mesmo medóide e outros não. O mesmo resultado ocorre com o país que melhor representa seu cluster - a PCA mostra o mesmo resultado para K-Means e hierárquica, o que não ocorre sem o uso da PCA; somente 1 país coincide para ambos os modelos, como pode ser observado nas tabelas acima.
 
-    sem PCA: 6
-
-    com PCA: 6
-
-2) Hierárquica:
-
-    sem PCA: 6
-
-    com PCA: 4 
-
-Ressalto que esses valores foram testados em ambos os modelos e apresentou melhora significativa no índice de DB, todavia não foi implementado porque, como dito anteriormente, o interesse inicial é trabalhar com 3 clusters.
-
-A principal semelhança nos resultados comparando ambos os modelos (com e sem uso da PCA) foram os valores bem próximos para o índice de Davies-Bouldin(DB), entretanto, a clusterização hierárquica ainda leva uma pequena vantagem. Uma outra semelhança foi no resultado do dendrograma (escolhendo 3 clusters para representar os países) o que condiz com o número de clusters que escolhemos inicialmente no K-Means. Os medóides usando PCA foram os mesmos para ambos os modelos, porém sem o uso da PCA alguns cluster tiveream o mesmo medóide e outros não. O mesmo resultado ocorre com o país que melhor representa seu cluster - a PCA mostra o mesmo resultado para K-Means e hierárquica, o que não ocorre sem o uso da PCA; somente 1 país coincide para ambos os modelos.
-
-A escolha pelo índice de DB se deve ao fato dele ser menos sensível a presença de _outliers_ - os quais foram mantidos no modelo - já que não seria interessante remover diversos países para fazer a análise.
-
-A principal diferença foi a quantidade de países em cada cluster de K-Means vs. Hierárquica. Essa diferença pode estar associada ao fato de K-Means:
+A principal diferença foi a quantidade de países em cada cluster de **```K-Means vs. Hierárquica```**. Essa diferença pode estar associada ao fato de K-Means:
 
 1 - ser mais sensível a _outliers_ em relação à clusterização hierárquica;
 
@@ -68,29 +157,25 @@ A principal diferença foi a quantidade de países em cada cluster de K-Means vs
 
 3 - depender da escolha inicial dos centros dos clusters, o que não é necessário na clusterização hierárquica.
 
-Além disso, também usei o índice cophenetic e ele apresentou um ótimo resultado, o que define a escolha pela clusterização  hierárquica como melhor modelo.
 
-Um outro ponto a ser observado é que a visualização do método do cotovelo definiu valores diferentes para o número de ideal de clusters na Hierárquica:
+## Escolha do modelo
 
-1) K-Means: 
+Apesar de ambos os modelos apresentarem valores bem próximos para o índice de Davies-Bouldin, a **```clusterização hierárquica```** ainda leva uma pequena vantagem e por este motivo a escolha de países para receberem verba será baseada neste quesito. Sendo assim, os países do cluster com _threshold_ 13 de acordo com o dendrograma, ou seja, pertencentes ao **```cluster 1```** que receberão a verba.
 
-    sem PCA: 6
+### Algumas discussões e obervações importantes
 
-    com PCA: 6
+1. O algoritmo de K-Means é sensível a outliers nos dados porque a ideia é minimizar a norma (geralmente euclidiana) entre os pontos e os centróides dos clusters. Como os outliers são pontos discrepantes no espaço de características, eles oferecem alterações significativas na média e, consequentemente, no centróide.
 
-2) Hierárquica:
+2. A sensibilidade a outliers pode levar a resultados indesejados, pois o centróide pode ser "puxado" em direção aos outliers, distorcendo a formação dos clusters. Isso ocorre porque o K-Means assume que os dados são distribuídos de maneira esférica e homogênea, o que significa que ele tentará criar clusters que são esfericamente compactos e de tamanhos aproximadamente iguais.
 
-    sem PCA: 6
+3. O algoritmo de DBScan é mais robusto à presença de outliers porque se baseia na densidade de pontos em torno de cada padrão para definir os clusters. Na primeira etapa do algoritmo ele toma cada amostra e a considera: ou como um ponto central, ou como um ponto de fronteira ou como um ruído; já na segunda etapa os pontos centrais e de fronteira são agrupados em clusters, o que significa que os pontos de ruído ficam fora de qualquer cluster, e por isso sua robustez aos _outliers_.
 
-    com PCA: 4 
+4. O resultado do dendrograma mostrou 3 clusters para representar os países o que condiz com o número de clusters ideal apresentado pelo **```método do cotovelo```**. 
 
-Ressalto que esses valores foram testados em ambos os modelos e apresentou melhora significativa no índice de DB, todavia não foi implementado porque, como dito anteriormente, o interesse inicial é trabalhar com 3 clusters.
 
-## Escolha de algoritmos
+## Apêndice
 
-### 1. Escreva em tópicos as etapas do algoritmo de K-médias até sua convergência.
-
-**Matematicamente:**
+Descrição matemática das etapas do algoritmo K-Means até sua convergência.
 
 Primeiramente vamos definir um objeto $\textbf{c}_{i}\in\mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos ${\lbrace\textbf{c}_i\rbrace}\_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada. Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
 
@@ -121,45 +206,3 @@ $$\textbf{c}_j=\dfrac{\displaystyle{\sum\_{n=1}^{N}}z\_{n,j}\textbf{x}_n}{\displ
 Resumidamente, podemos dizer que o K-Means repete estes dois passos até que a convergência (posições dos objetos deve ser inferior a um limiar pequeno) seja atingida, isto é, até que o centróide não se desloque mais.
 
 Veja que o denominador da equação acima equivale ao número de amostras $x_n$ atribuídas ao cluster, logo, $c_j$ nada mais é do que o vetor resultante da média aritmética de todas as amostras pertencentes ao cluster $j$.
-
-**Interpretação da linguagem matemática**
-
-A ideia central do K-Means é particionar um conjunto de dados em k clusters, nos quais cada ponto de dados pertence ao cluster cujo centróide é mais próximo. A partir daí ele repete sucessivamente esta tarefa com intuito de otimizar a divisão dos dados em clusters, de tal forma que a variância dentro de cada cluster seja minimizada.
-
-As etapas do algoritmo são divididas da seguinte forma:
-
-1) escolhe o número de clusters (k).
-
-2) inicializa aleatoriamente os centróides, um para cada cluster; lembramdo que os centróides são os pontos que representam o centro de cada cluster.
-
-3) atribui cada ponto de dados ao cluster cujo centróide é o mais próximo - isso é feito calculando a distância entre cada ponto e todos os centróides e atribuindo o ponto ao cluster cujo centróide é o mais próximo.
-
-4) atualiza os centróides, ou seja, recalcula os centróides de cada cluster - isso é feito tirando a média de todos os pontos atribuídos a cada cluster.
-
-Aplica sucessivamente os métodos 3 e 4 até que não haja mais alterações nas atribuições dos pontos aos clusters, isto equivale a dizer que as posições dos clusters é atualizada até que o centróide não se desloque mais ou até que se alcance o número máximo de iterações definido inicialmente.
-
-### 2. O algoritmo de K-médias converge até encontrar os centróides que melhor descrevem os clusters encontrados (até o deslocamento entre as interações dos centróides ser mínimo). Lembrando que o centróide é o baricentro do cluster em questão e não representa, em via de regra, um dado existente na base. Refaça o algoritmo apresentado na questão 1 a fim de garantir que o cluster seja representado pelo dado mais próximo ao seu baricentro em todas as iterações do algoritmo. Obs: nesse novo algoritmo, o dado escolhido será chamado medóide.
-
-O Medoid do Cluster 0 é: TANZANIA
-
-O Medoid do Cluster 1 é: TUNISIA
-
-O Medoid do Cluster 2 é: FINLAND
-
-## Usando PCA
-
-O Medoid do Cluster 0 é: TANZANIA
-
-O Medoid do Cluster 1 é: SURINAME
-
-O Medoid do Cluster 2 é: FINLAND
-
-### Algumas discussões importantes
-
-O algoritmo de K-Means é sensível a outliers nos dados porque a ideia é minimizar a norma(geralmente euclidiana) entre os pontos e os centróides dos clusters. Como os outliers são pontos discrepantes no espaço de características, eles oferecem alterações significativas na média e, consequentemente, no centróide.
-
-A sensibilidade a outliers pode levar a resultados indesejados, pois o centróide pode ser "puxado" em direção aos outliers, distorcendo a formação dos clusters. Isso ocorre porque o K-Means assume que os dados são distribuídos de maneira esférica e homogênea, o que significa que ele tentará criar clusters que são esfericamente compactos e de tamanhos aproximadamente iguais.
-
-Já o algoritmo de DBScan é mais robusto à presença de outliers porque se baseia na densidade de pontos em torno de cada padrão para definir os clusters. Na primeira etapa do algoritmo ele toma cada amostra e a considera: ou como um ponto central, ou como um ponto de fronteira ou como um ruído; já na segunda etapa os pontos centrais e de fronteira são agrupados em clusters, o que significa que os pontos de ruído ficam fora de qualquer cluster, e por isso sua robustez aos _outliers_.
-
-
