@@ -52,7 +52,7 @@ Cluster 2: FINLAND
 
 ### ```Medóides```
 
-**O medóide é o dado da base pertencente a um cluster que tem a menor soma das distâncias para todos os outros pontos do mesmo cluster.**
+**O medóide é o dado da base pertencente a um cluster que tem a menor soma dos quadrados das distâncias para todos os outros pontos do mesmo cluster.**
 ***
 ### Sem PCA
 ***
