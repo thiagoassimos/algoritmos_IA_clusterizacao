@@ -40,7 +40,7 @@ Cluster 1: TUNISIA
 ***
 Cluster 2: FINLAND
 ***
-### Usando PCA
+#### Usando PCA
 ***
 Cluster 0: TANZANIA
 ***
@@ -63,12 +63,12 @@ Cluster 2: FINLAND
 ***
 #### Usando PCA
 ***
-Cluster 0 é: TANZANIA
-
-Cluster 1 é: SURINAME
-
-Cluster 2 é: FINLAND
-
+Cluster 0: TANZANIA
+***
+Cluster 1: SURINAME
+***
+Cluster 2: FINLAND
+***
 **É importante observar que, em todos os casos, o país que melhor representa seu cluster foi o mesmo encontrado através do cálculo do medóide, logo, podemos dizer que o centróide coincidiu com o medóide.**
 
 ### ```Hierárquica```
@@ -95,38 +95,38 @@ Essas diferenças nos dendrogramas dos países intermediários se deve à difere
 ***
 #### Sem PCA
 ***
-Cluster 0 é: FINLAND
+Cluster 0: FINLAND
 ***
-Cluster 1 é: GHANA
+Cluster 1: GHANA
 ***
-Cluster 2 é: BULGARIA
+Cluster 2: BULGARIA
 ***
 #### Usando PCA
 ***
-Cluster 0 é: FINLAND
+Cluster 0: FINLAND
 ***
-Cluster 1 é: TANZANIA
+Cluster 1: TANZANIA
 ***
-Cluster 2 é: SURINAME
+Cluster 2: SURINAME
 ***
 
 ### ```Medóides```
-
+***
 #### Sem PCA
-
-Cluster 0 é: FINLAND
 ***
-Cluster 1 é: GHANA
+Cluster 0: FINLAND
 ***
-Cluster 2 é: BULGARIA
+Cluster 1: GHANA
+***
+Cluster 2: BULGARIA
 ***
 #### Usando PCA
-
-Cluster 0 é: FINLAND
 ***
-Cluster 1 é: TANZANIA
+Cluster 0: FINLAND
 ***
-Cluster 2 é: SURINAME
+Cluster 1: TANZANIA
+***
+Cluster 2: SURINAME
 ***
 
 Neste modelo também foi usado a **```correlação cophenetic```** e ela apresentou um ótimo resultado **```(0.88)```**. Esta medida compara as distâncias entre pares de pontos no dendrograma com as distâncias originais entre os pontos. Uma correlação cophenetic alta (máximo igual a 1) indica uma boa preservação das distâncias originais.
