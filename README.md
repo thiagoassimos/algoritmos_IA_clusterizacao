@@ -32,7 +32,7 @@ Um país é considerado pertencente a um cluster se estiver mais próximo do cen
 
 ### ```País que melhor representa seu cluster```
 ***
-#### **Sem PCA**
+### Sem PCA
 ***
 Cluster 0: TANZANIA
 ***
@@ -40,7 +40,7 @@ Cluster 1: TUNISIA
 ***
 Cluster 2: FINLAND
 ***
-#### **Usando PCA**
+### Usando PCA
 ***
 Cluster 0: TANZANIA
 ***
@@ -49,11 +49,10 @@ Cluster 1: SURINAME
 Cluster 2: FINLAND
 ***
 
-**OBS: O medóide é o dado da base pertencente a um cluster que tem a menor soma das distâncias para todos os outros pontos do mesmo cluster.**
 
-### ```Medóides```
+### ```Medóides```**O medóide é o dado da base pertencente a um cluster que tem a menor soma das distâncias para todos os outros pontos do mesmo cluster.**
 ***
-#### **Sem PCA**
+### Sem PCA
 ***
 Cluster 0: TANZANIA
 ***
@@ -61,7 +60,7 @@ Cluster 1: TUNISIA
 ***
 Cluster 2: FINLAND
 ***
-#### **Usando PCA**
+### Usando PCA
 ***
 Cluster 0: TANZANIA
 ***
@@ -93,7 +92,7 @@ Essas diferenças nos dendrogramas dos países intermediários se deve à difere
 
 ### ```País que melhor representa seu cluster```
 ***
-#### **Sem PCA**
+### Sem PCA
 ***
 Cluster 0: FINLAND
 ***
@@ -101,7 +100,7 @@ Cluster 1: GHANA
 ***
 Cluster 2: BULGARIA
 ***
-#### **Usando PCA**
+### Usando PCA
 ***
 Cluster 0: FINLAND
 ***
@@ -112,7 +111,7 @@ Cluster 2: SURINAME
 
 ### ```Medóides```
 ***
-#### **Sem PCA**
+### Sem PCA
 ***
 Cluster 0: FINLAND
 ***
@@ -120,7 +119,7 @@ Cluster 1: GHANA
 ***
 Cluster 2: BULGARIA
 ***
-#### **Usando PCA**
+### Usando PCA
 ***
 Cluster 0: FINLAND
 ***
