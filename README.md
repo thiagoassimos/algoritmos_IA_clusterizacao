@@ -20,9 +20,18 @@ As etapas do algoritmo são divididas da seguinte forma:
 
 Aplica sucessivamente os métodos 3 e 4 até que não haja mais alterações nas atribuições dos pontos aos clusters, isto equivale a dizer que as posições dos clusters é atualizada até que o centróide não se desloque mais ou até que se alcance o número máximo de iterações definido inicialmente.
 
+
+### **```Número de clusters determinado pelo método do "cotovelo"```**
+
+![Alt text](cotovelo_kmeans.png)
+
 ### ```Hierárquica```
 
 O dendrograma é uma representação gráfica em forma de árvore para analisar agrupamentos ou clusters e assim mostrar a estrutura hierárquica dos dados. Nesta análise cada país é considerado um cluster (folha) que vai sendo aglomerado aos pares levando em conta alguma medida de similaridade - em nosso caso a distância euclidiana - até formar clusters maiores também conhecidos como nós subordinados, que serão conectados entre si até um limite (_threshold distance_) que é o ponto de corte para que os países sejam agrupados no mesmo cluster; se tiver um valor acima deste limite, o algoritmo não une. A partir daí todos os nós subordinados são conectados entre si até serem conectados ao nó raiz.
+
+### **```Número de clusters determinado pelo método do "cotovelo"```**
+
+![Alt text](cotovelo_agglomerative.png)
 
 ## Resultados
 
