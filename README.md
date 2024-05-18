@@ -1,6 +1,6 @@
 ## Descrição do problema 
 
-A HELP International conseguiu arrecadar cerca de US$ 10 milhões. Agora o CEO da ONG precisa de decidir como usar este dinheiro de forma estratégica e eficaz. Assim, o CEO tem de tomar a decisão de escolher os países que mais necessitam de ajuda. Como cientista de dados a ideia é categorizar os países usando alguns fatores socioeconômicos e de saúde que determinam o desenvolvimento geral do país. Por fim, será sugerido os países nos quais o CEO precisa se concentrar mais.
+A HELP International conseguiu arrecadar cerca de US$ 10 milhões e o CEO da ONG precisa decidir como usar este dinheiro de forma estratégica e eficaz para tomar a decisão de escolher os países que mais necessitam de ajuda. Para isso, vamos categorizar os países tomando como base os parâmetros socioeconômicos e de saúde que determinam o desenvolvimento geral do país. Por fim, será sugerido os países nos quais o CEO precisa se concentrar mais.
 
 ## Modelos de clusterização utilizados: 
 
