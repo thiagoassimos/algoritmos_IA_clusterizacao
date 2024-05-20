@@ -185,7 +185,7 @@ Apesar de ambos os modelos apresentarem valores bem próximos para o índice de 
 
 ## Apêndice
 
-Descrição matemática das etapas do algoritmo K-Means até sua convergência.
+Aspectos matemáticos das etapas do algoritmo K-Means até sua convergência.
 
 Primeiramente vamos definir um objeto $\textbf{c}_{i}\in\mathbb{R}^{K\times 1}$ que representará cada cluster. A ideia é buscar atribuir os dados aos clusters, bem como um conjunto de objetos ${\lbrace\textbf{c}_i\rbrace}\_{i=1}^{k}$, tais que a soma das distâncias de cada amostra $\textbf{x}_n$ ao $\textbf{c}_i$ mais próximo seja minimizada. Considerando que temos um espaço métrico em questão, vamos definir uma função chamada objetivo, que é dada por: 
 
