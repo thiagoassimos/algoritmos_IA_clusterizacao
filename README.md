@@ -207,7 +207,7 @@ $$\displaystyle\min_{z_{n,i}} O = \displaystyle{\sum_{i=1}^{k}}z_{n,i}\Vert\text
 0, & \;\hbox{caso contrário} \end{array}\right.
 ```
 
-2 - Dada a atribuição dos dados aos clusters, minimizamos com respeito a $\textbf{c}_i$, ou seja, atualizamos as posições dos clusters e consequentemente
+2 - Dada a atribuição dos dados aos clusters, minimizamos com respeito a $\textbf{c}_i$, ou seja, atualizamos as posições dos clusters, consequentemente
 
 $$\dfrac{\partial O}{\partial c_j}=\displaystyle{\sum_{n=1}^{N}}z_{n,j}(\textbf{x}_{n}-\textbf{c}_j)=0\nonumber,$$ onde
 
